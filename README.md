@@ -57,23 +57,6 @@ This project is a **rewrite and cleaned-up version** of the original **tauri-sys
 
 ---
 
-## 📂 Project Structure
-src/
-├── api/ # Tauri command wrappers (frontend ↔ backend)
-├── components/ # React components (CPU, GPU, RAM, etc.)
-├── utils/ # Formatting helpers
-├── assets/ # Icons & images (during development)
-├── App.tsx
-└── main.tsx
-
-src-tauri/
-├── src/
-│ ├── system/ # System modules (cpu, gpu, disks, network, ...)
-│ └── main.rs
-└── tauri.conf.json
-
----
-
 ## 🚀 Development
 
 ### Install dependencies
@@ -85,6 +68,7 @@ npm run tauri dev
 
 ## Build
 npm run tauri build
+```
 
 ## 🔄 Rewrite Notes
 
