@@ -34,7 +34,7 @@ section#OS {
 }
 
 section#cpu{
-  flex: 0 1 230px;
+  flex: 0 1 225px;
 }
 
 section#gpu{
