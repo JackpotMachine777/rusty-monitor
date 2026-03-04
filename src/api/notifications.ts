@@ -4,5 +4,5 @@ export async function notify(title: string, message: string , urgent: boolean = 
   try{
     await invoke("send_notification", {title, message, urgent});
   } 
-  catch(err) { console.error(`Error while sending notification: ${err}`); }
+  catch(err) { alert(`Error while sending notification: ${err}`); }
 }

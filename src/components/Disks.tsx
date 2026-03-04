@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
-import { diskInfo } from "../api/disks";
+import { diskInfo, Disk } from "../api/disks";
 import { notify } from "../api/notifications";
-
-interface Disk {
-    diskname: string;
-    total_space: number;
-    available_space: number;
-}
 
 export default function Disks(){
     const [disks, setDisks] = useState<Disk[] | null>(null)

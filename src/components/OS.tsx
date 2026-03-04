@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { osInfo } from "../api/operating_system";
+import { osInfo, Os } from "../api/operating_system";
 import { formatTime } from "../utils/formatTime";
 
 export default function OS(){
-    const [os, setOs] = useState<any>(null);
+    const [os, setOs] = useState<Os | null>(null);
 
       useEffect(() => {
        let isMounted = true;

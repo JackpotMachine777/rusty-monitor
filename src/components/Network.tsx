@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { networkInfo } from "../api/network";
+import { networkInfo, Net } from "../api/network";
 import { formatInternet } from "../utils/formatInternet";
 
 export default function Network(){
-    const [network, setNetwork] = useState<any>()
+    const [network, setNetwork] = useState<Net | null>(null)
 
     useEffect(() => {
         let isMounted = true;

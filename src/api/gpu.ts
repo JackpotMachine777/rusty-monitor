@@ -1,7 +1,16 @@
 import { invoke } from "@tauri-apps/api/core";
 
-export async function gpuInfo(){
-    let gpuData = await invoke("get_gpu_info");
+export interface GPU {
+    name: string;
+    temp: number;
+    usage: number;
+    power_draw: number;
+    power_limit: number;
+    memory_used: number;
+    memory_total: number;
+    mhz_used: number;
+}
 
-    return gpuData;
+export async function gpuInfo(){
+    return await invoke<GPU>("get_gpu_info");
 }

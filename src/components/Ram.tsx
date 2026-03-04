@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { ramInfo } from "../api/ram";
+import { ramInfo, RAM } from "../api/ram";
 import { formatBytes } from "../utils/formatBytes";
 
 export default function Ram(){
-    const [ram, setRam] = useState<any>();
+    const [ram, setRam] = useState<RAM | null>(null);
 
     useEffect(() => {
         let isMounted = true;

@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { cpuInfo } from "../api/cpu.ts";
+import { useState, useEffect, useRef } from "react";
+import { cpuInfo, CPU } from "../api/cpu.ts";
 import { formatClocks } from "../utils/formatClocks.ts";
 import { notify } from "../api/notifications.ts";
 
-let cpuCrit: boolean = false;
-
 export default function Cpu(){
-  const [cpu, setCpu] = useState<any>(null)
+  const [cpu, setCpu] = useState<CPU | null>(null)
+  const cpuCrit = useRef(false);
+
   useEffect(() => {
    let isMounted = true;
    
@@ -27,10 +27,10 @@ export default function Cpu(){
     </section>
   )
 
-  if(cpu.temp.toFixed(0) > 85 && !cpuCrit){
+  if(Number(cpu.temp.toFixed(0)) > 85 && !cpuCrit.current){
     notify("CAUTION!", "CPU Temperature is too high!", true);
-    cpuCrit = true;
-  } else if(cpu.temp.toFixed(0) < 85) cpuCrit = false;
+    cpuCrit.current = true;
+  } else if(Number(cpu.temp.toFixed(0)) < 85) cpuCrit.current = false;
 
   return (
     <>

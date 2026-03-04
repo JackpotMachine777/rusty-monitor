@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
-import { gpuInfo } from "../api/gpu";
+import { useState, useEffect, useRef } from "react";
+import { gpuInfo, GPU } from "../api/gpu";
 import { formatClocks } from "../utils/formatClocks";
 import { notify } from "../api/notifications";
 
-let gpuCrit: boolean = false;
-
 export default function Gpu(){
-    const [gpu, setGpu] = useState<any>(null);
+    const [gpu, setGpu] = useState<GPU | null>(null);
+    const gpuCrit = useRef(false)
 
     useEffect(() => {
         let isMounted = true;
@@ -28,10 +27,10 @@ export default function Gpu(){
         </section>
     )
 
-    if(gpu.temp > 85 && !gpuCrit){
-        gpuCrit = true;
+    if(gpu.temp > 85 && !gpuCrit.current){
+        gpuCrit.current = true;
         notify("CAUTION!", "GPU Temperature is too high!", true);
-    } else if(gpu.temp < 85) gpuCrit = false;
+    } else if(gpu.temp < 85) gpuCrit.current = false;
 
     return (
         <section id="gpu">

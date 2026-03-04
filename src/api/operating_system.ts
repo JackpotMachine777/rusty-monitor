@@ -1,7 +1,14 @@
 import { invoke } from "@tauri-apps/api/core";
 
-export async function osInfo(){
-    const osData = await invoke("get_system_info");
+export interface Os{
+    name: string;
+    hostname: string;
+    version: string;
+    arch: string;
+    kernel_version: string;
+    uptime: number;
+}
 
-    return osData;
+export async function osInfo(){
+    return await invoke<Os>("get_system_info");
 }
