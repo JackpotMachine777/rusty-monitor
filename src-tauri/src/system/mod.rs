@@ -7,3 +7,4 @@ pub mod operating_system;
 pub mod process_kill;
 pub mod processes;
 pub mod ram;
+pub mod tray;
