@@ -69,6 +69,7 @@ npm run tauri dev
 ## Build
 npm run tauri build
 ```
+---
 
 ## 🔄 Rewrite Notes
 
@@ -78,6 +79,8 @@ Compared to tauri-system-monitor, this version:
 - ♻️ Uses clean, reusable components
 - ⚡ Improves refresh handling and performance
 - ✨ Easier to extend with new system modules
+  
+---
 
 ### 🖥️ Platform support
 
