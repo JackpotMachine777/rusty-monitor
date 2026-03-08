@@ -79,7 +79,7 @@ Compared to tauri-system-monitor, this version:
 - ⚡ Improves refresh handling and performance
 - ✨ Easier to extend with new system modules
 
-### Platform support
+### 🖥️ Platform support
 
 This project is developed and tested primarily on Linux (Arch Linux).
 
