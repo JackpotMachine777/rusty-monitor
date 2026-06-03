@@ -1,6 +1,6 @@
 [package]
 name = "rusty-monitor"
-version = "0.1.0"
+version = "1.0.0"
 description = "System monitor built in rust"
 authors = ["JackpotMachine777"]
 edition = "2021"

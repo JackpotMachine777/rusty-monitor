@@ -35,7 +35,8 @@
     "active": false,
     "targets": "all",
     "icon": [
-      "icons/sysmon.png"
+      "icons/sysmon.png",
+      "icons/sysmon.ico"
     ]
   }
 }
