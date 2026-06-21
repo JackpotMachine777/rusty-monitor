@@ -4,7 +4,9 @@ import { formatClocks } from "../utils/formatClocks.ts";
 import { notify } from "../api/notifications.ts";
 
 export default function Cpu(){
-  const [cpu, setCpu] = useState<CPU | null>(null)
+  const [cpu, setCpu] = useState<CPU | null>(null);
+  const [usageVisible, setUsageVisible] = useState(false);
+  const [freqVisible, setFreqVisible] = useState(false);
   const cpuCrit = useRef(false);
 
   useEffect(() => {
@@ -39,8 +41,30 @@ export default function Cpu(){
         <h2>CPU</h2>
         <div id="cpu-name">Model: {cpu.brand}</div>
         <div id="cpu-threads">Threads: {cpu.threads}</div>
-        <div id="cpu-usage">Usage: {(cpu.usage).toFixed(0)}%</div>
-        <div id="cpu-freq">Frequency: {formatClocks(cpu.freq, "cpu")}</div>
+        <div id="cpu-usage" onClick={() => setUsageVisible(v => !v)} style={{ cursor: "pointer" }}>
+          Usage: {(cpu.usage).toFixed(0)}%
+        </div>
+        {usageVisible && (
+          <div id="usage-per-thread">
+            {cpu.usage_per_thread.map((t, i) => (
+              <div key={i} className="thread-usage">Thread {i + 1}: {t.toFixed(1)}%</div>
+            ))}
+          </div>
+        )}
+
+        <div id="cpu-power">Power draw: {cpu.power_draw.toFixed(1)} W</div>
+
+        <div id="cpu-freq" onClick={() => setFreqVisible(v => !v)} style={{ cursor: "pointer" }}>
+          Frequency: {formatClocks(cpu.freq, "cpu")}
+        </div>
+        {freqVisible && (
+          <div id="freq-per-thread">
+            {cpu.freq_per_thread.map((f, i) => (
+              <div key={i} className="thread-freq">Thread {i + 1}: {formatClocks(f, "cpu")}</div>
+            ))}
+          </div>
+        )}
+
         <div id="cpu-temp">Temperature: {(cpu.temp).toFixed(0)}°C</div>
       </section>
       )}

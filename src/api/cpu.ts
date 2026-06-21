@@ -5,7 +5,11 @@ export interface CPU {
     threads: number;
     usage: number;
     freq: number;
-    temp: number
+    temp: number;
+    usage_per_thread: number[];
+    freq_per_thread: number[];
+    power_draw: number;
+    power_limit: number;
 }
 
 export async function cpuInfo(){

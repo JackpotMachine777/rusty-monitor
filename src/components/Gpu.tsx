@@ -38,7 +38,7 @@ export default function Gpu(){
             <div id="gpu-name">Model: {gpu.name}</div>
             <div id="gpu-temp">Temperature: {gpu.temp}°C</div>
             <div id="gpu-usage">Usage: {gpu.usage}%</div>
-            <div id="gpu-power">Power draw: {(gpu.power_draw).toFixed(0)} W / {(gpu.power_limit).toFixed(0)} W</div>
+            <div id="gpu-power">Power draw: {(gpu.power_draw).toFixed(1)} W</div>
             <div id="vram-usage">VRAM Usage: {gpu.memory_used} MB / {gpu.memory_total} MB</div>
             <div id="mhz-used">Frequency: {formatClocks(gpu.mhz_used, "gpu")}</div>
         </section>

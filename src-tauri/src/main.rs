@@ -15,6 +15,7 @@ use system::{
     ram,
     tray,
 };
+use std::sync::Mutex;
 
 fn main() {
     tauri::Builder::default()
@@ -31,6 +32,7 @@ fn main() {
                 let _ = notifications::send_notification("Tray", "Rusty Monitor is still running in the system tray.", false);
             }
         })
+        .manage(Mutex::new(cpu::PowerState::default()))
         .invoke_handler(tauri::generate_handler![cpu::get_cpu_info, disks::get_disk_info, gpu::get_gpu_info, network::get_network_info, notifications::send_notification, operating_system::get_system_info, processes::get_processes, process_kill::process_kill, ram::get_ram_info])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

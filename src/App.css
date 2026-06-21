@@ -116,9 +116,21 @@ h2 {
 
 #cpu-usage, #cpu-temp, #cpu-freq, #gpu-usage, #gpu-temp, #vram-usage,
 #total-ram, #used-ram, #total-swap, #used-swap, #cpu-name, #gpu-name, #network-name, #gpu-power, 
-#mhz-used, #transmitted, #received, #cpu-threads {
+#mhz-used, #transmitted, #received, #cpu-threads, #cpu-power, #freq-per-thread, #usage-per-thread {
   font-weight: 600;
   color: #bb86fc;
+}
+
+.thread-usage, .thread-freq {
+  font-weight: 600;
+  color: #bb86fc;
+  font-size: 0.8em;
+  line-height: 1.3;
+  padding-left: 0.75rem;
+}
+
+#usage-per-thread, #freq-per-thread {
+  margin-top: 0.25rem;
 }
 
 #cpu-usage, #cpu-freq{

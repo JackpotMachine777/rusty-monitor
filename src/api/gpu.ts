@@ -5,7 +5,6 @@ export interface GPU {
     temp: number;
     usage: number;
     power_draw: number;
-    power_limit: number;
     memory_used: number;
     memory_total: number;
     mhz_used: number;
